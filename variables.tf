@@ -5,28 +5,39 @@ variable "create" {
 variable "name" {
     type    = string
 }
-variable "policy_type" {
-    type    = string
-}
-variable "policy_identifiers" {
-    type    = string
-}
-variable "description" {
-    type    = string
-}
-variable "effect" {
-    type    = string
-}
-variable "actions" {
-    type    = list(string)
-    default = []
-}
-variable "resources" {
-    type    = list(string)
-    default = []
-}
 variable "default_tags" {
     type    = map(string)
     default = {}
 }
-
+variable "iam_policy" {
+    type    = any
+    default = []
+}
+variable "assume_role_policy" {
+    type    = any
+    default = []
+}
+variable "path" {
+    type    = string
+    default = "/"
+}
+variable "description" {
+    type    = string
+    default = null
+}
+variable "max_session_duration" {
+    type    = number
+    default = 3600
+}
+variable "force_detach_policies" {
+    type    = bool
+    default = false
+}
+variable "use_num_suffix" {
+    type        = bool
+    default     = false
+}
+variable "import_managed_policies" {
+    type    = any
+    default = []
+}
